@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "PhishingShield",
+  "version": "1.0.0",
+  "description": "AI + heuristic phishing URL detector with live badge alerts and warning screen.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "webNavigation",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "PhishingShield",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "model/*",
+        "warning.html",
+        "warning.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

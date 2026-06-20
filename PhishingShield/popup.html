@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhishingShield</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="popup-body">
+  <div class="popup-shell">
+    <section class="card">
+      <div class="hero-top">
+        <div>
+          <div class="mini-label">Deep Learning Phishing Detector</div>
+          <h1>PhishingShield</h1>
+          <p class="subtext">Live auto scanning, manual URL testing, and popup warning protection.</p>
+        </div>
+        <div id="statusPill" class="pill neutral">Checking</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="mini-label">Auto Scanning</div>
+      <h2>Current tab monitoring</h2>
+      <div id="liveResult"></div>
+    </section>
+
+    <section class="card manual-card">
+      <div class="manual-top">
+        <div>
+          <div class="mini-label">Manual Scan</div>
+          <h2>Scan any URL</h2>
+        </div>
+        <button id="useCurrentBtn" class="btn secondary small">Use Current</button>
+      </div>
+
+      <textarea
+        id="urlInput"
+        rows="3"
+        placeholder="Paste a URL or suspicious link here..."
+      ></textarea>
+
+      <div class="btn-row section-gap">
+        <button id="scanBtn" class="btn primary grow-btn">Scan Now</button>
+      </div>
+
+      <div id="resultCard" class="manual-result section-gap">
+        <div class="manual-score-wrap">
+          <div id="scoreRing" class="score-ring big">
+            <div class="score-inner big">
+              <span id="riskScore">0%</span>
+              <small>Risk</small>
+            </div>
+          </div>
+
+          <div class="score-copy">
+            <div id="resultBadge" class="badge neutral">Waiting</div>
+            <h3 id="resultTitle" class="result-title">Ready to scan</h3>
+            <p id="checkedUrl" class="subtext">Paste a link and press Scan Now.</p>
+            <div id="domainBox" class="domain-box">Domain: —</div>
+          </div>
+        </div>
+
+        <div class="reason-panel section-gap">
+          <div class="reason-head">
+            <div class="mini-label">Reason of Risk</div>
+            <div id="riskLevelText" class="reason-level neutral-text">Low</div>
+          </div>
+          <ul id="reasonsList" class="reasons large">
+            <li>No scan performed yet.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="mini-label">Stats</div>
+      <div class="stats-grid section-gap">
+        <div class="stat-card">
+          <span id="totalScans">0</span>
+          <label>Total Scans</label>
+        </div>
+        <div class="stat-card">
+          <span id="riskyScans">0</span>
+          <label>Risky</label>
+        </div>
+        <div class="stat-card">
+          <span id="aiScans">0</span>
+          <label>AI-Like</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="history-top">
+        <div>
+          <div class="mini-label">Recent History</div>
+          <h3>Last scans</h3>
+        </div>
+        <button id="clearHistoryBtn" class="btn ghost small">Clear</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </section>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
